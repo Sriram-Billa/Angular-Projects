@@ -5,14 +5,14 @@
     </div>
     <div class="card-body">
         <div class="row">
-            <div class="col-md-2">Filter By: </div>
+            <div class="col-md-2">Filter By:</div>
             <div class="col-md-4">
-                <input type="text" />
+                <input type="text" [(ngModel)]="listFilter" />
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
-                <h4>Filtered By ::</h4>
+                <h4>Filtered By :: {{listFilter}}</h4>
             </div>
         </div>
 
@@ -20,7 +20,12 @@
             <table class="table" *ngIf="products && products.length">
                 <thead>
                     <tr>
-                        <th>Product Image</th>
+                        <th>
+                            <button type="button" class="btn btn-primary" (click)="toggleImage()">
+                                {{ showImage ? "Hide": "Show"}} Image
+                            </button>
+
+                        </th>
                         <th>Product</th>
                         <th>Code</th>
                         <th>Availability</th>
@@ -30,13 +35,13 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let product of products">
-                        <td><img [title]="product.productName" [src]="product.imageUrl" [style.width.px]="imageWidth"
-                                [style.margin.px]="imageMargin" />
+                        <td><img *ngIf="showImage" [title]="product.productName" [src]="product.imageUrl"
+                                [style.width.px]="imageWidth" [style.margin.px]="imageMargin" />
                         </td>
-                        <td>{{product.productName}}</td>
-                        <td>{{product.productCode}}</td>
-                        <td>{{product.availability}}</td>
-                        <td>{{product.price}}</td>
+                        <td>{{product.productName | uppercase}}</td>
+                        <td>{{product.productCode | lowercase}}</td>
+                        <td>{{product.availability | date:"dd/MM/yyyy"}}</td>
+                        <td>{{product.price | currency:"USD":true}}</td>
                         <td>{{product.starRating}}</td>
                     </tr>
 
