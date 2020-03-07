@@ -3,7 +3,8 @@ import { IProduct } from './product';
 
 @Component({
     selector: 'pm-products',
-    templateUrl: './product-list.component.html'
+    templateUrl: './product-list.component.html',
+    styleUrls: ['./product-list.component.css']
 })
 
 export class productListComponent {
@@ -11,7 +12,7 @@ export class productListComponent {
     imageWidth: number = 100;
     imageMargin: number = 10;
     showImage: boolean = false;
-    listFilter:string = "Sriram";
+    listFilter: string = "Sriram";
     products: IProduct[] = [{
 
         "productId": 1,
@@ -31,6 +32,15 @@ export class productListComponent {
         "description": "Penguin image",
         "starRating": 4.4,
         "imageUrl": "http://clipart-library.com/images/BcaE5KEXi.png"
+    }, {
+        "productId": 3,
+        "productName": "Rose",
+        "productCode": "Rose-1",
+        "availability": "March 5,2020",
+        "price": 50.0,
+        "description": "Rose image",
+        "starRating": 4.9,
+        "imageUrl": "http://clipart-library.com/newimages/rose-clip-art-1.png"
     }
     ]
 
