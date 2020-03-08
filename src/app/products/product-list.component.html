@@ -34,12 +34,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of products">
+                    <tr *ngFor="let product of products | productFilter:listFilter " >
                         <td><img *ngIf="showImage" [title]="product.productName" [src]="product.imageUrl"
                                 [style.width.px]="imageWidth" [style.margin.px]="imageMargin" />
                         </td>
                         <td>{{product.productName | uppercase}}</td>
-                        <td>{{product.productCode | lowercase}}</td>
+                        <td>{{product.productCode | lowercase | convertToSpace: "-" }}</td>
                         <td>{{product.availability | date:"dd/MM/yyyy"}}</td>
                         <td [ngStyle]="{'color':product.price > 26 ? 'red' : 'green'}">
                             {{product.price | currency:"USD":"symbol"}}
