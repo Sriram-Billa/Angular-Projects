@@ -16,7 +16,7 @@ export class productListComponent implements OnInit,OnChanges,AfterViewInit,OnDe
     imageWidth: number = 100;
     imageMargin: number = 10;
     showImage: boolean = false;
-    listFilter: string = "Sriram";
+    
     products: IProduct[] = [{
 
         "productId": 1,
