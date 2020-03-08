@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnChanges, DoCheck, AfterViewInit, OnDestroy } from '@angular/core';
 import { IProduct } from './product';
 
 @Component({
@@ -7,7 +7,11 @@ import { IProduct } from './product';
     styleUrls: ['./product-list.component.css']
 })
 
-export class productListComponent {
+export class productListComponent implements OnInit,OnChanges,AfterViewInit,OnDestroy{
+  
+ 
+   
+    
     pageTitle: string = 'Product List Page';
     imageWidth: number = 100;
     imageMargin: number = 10;
@@ -42,8 +46,20 @@ export class productListComponent {
         "starRating": 4.9,
         "imageUrl": "http://clipart-library.com/newimages/rose-clip-art-1.png"
     }
-    ]
+    ];
+    ngOnInit(): void {
+       console.log("inside on init()");
+    };
+    ngOnChanges(changes: import("@angular/core").SimpleChanges): void {
+        console.log("inside onchanges()")
+    };
 
+    ngAfterViewInit(): void {
+        console.log("inside after viewinit");
+     };
+     ngOnDestroy(): void {
+        console.log("inside ondestroy()")
+    };
     toggleImage(): void {
 
         this.showImage = !this.showImage;

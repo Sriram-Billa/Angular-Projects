@@ -42,7 +42,7 @@
                         <td>{{product.productCode | lowercase}}</td>
                         <td>{{product.availability | date:"dd/MM/yyyy"}}</td>
                         <td [ngStyle]="{'color':product.price > 26 ? 'red' : 'green'}">
-                            {{product.price | currency:"USD":true}}
+                            {{product.price | currency:"USD":"symbol"}}
                         </td>
                         <td>{{product.starRating}}</td>
                     </tr>
