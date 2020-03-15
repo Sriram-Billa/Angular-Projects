@@ -34,7 +34,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of products | productFilter:listFilter " >
+                    <tr *ngFor="let product of products | productFilter:listFilter ">
                         <td><img *ngIf="showImage" [title]="product.productName" [src]="product.imageUrl"
                                 [style.width.px]="imageWidth" [style.margin.px]="imageMargin" />
                         </td>
@@ -44,7 +44,9 @@
                         <td [ngStyle]="{'color':product.price > 26 ? 'red' : 'green'}">
                             {{product.price | currency:"USD":"symbol"}}
                         </td>
-                        <td><pm-star [rating] = "product.starRating" (ratingClicked)="onRatingClicked($event)"></pm-star></td>
+                        <td>
+                            <pm-star [rating]="product.starRating" (ratingClicked)="onRatingClicked($event)"></pm-star>
+                        </td>
                     </tr>
 
 
