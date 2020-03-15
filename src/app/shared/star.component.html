@@ -1,0 +1,19 @@
+<div class="star-container">
+    <span class="fa fa-star-o" aria-hidden="true"></span>
+    <span class="fa fa-star-o" aria-hidden="true"></span>
+    <span class="fa fa-star-o" aria-hidden="true"></span>
+    <span class="fa fa-star-o" aria-hidden="true"></span>
+    <span class="fa fa-star-o" aria-hidden="true"></span>
+
+
+    <div class="crop" [style.width.px]="starContainerWidth" [title]="rating" (click)="OnClick()">
+
+        <div style="width: 86px;">
+            <span class="fa fa-star checked" style="color: orange;"></span>
+            <span class="fa fa-star checked" style="color: orange;"></span>
+            <span class="fa fa-star checked" style="color: orange;"></span>
+            <span class="fa fa-star checked" style="color: orange;"></span>
+            <span class="fa fa-star checked" style="color: orange;"></span>
+        </div>
+    </div>
+</div>
