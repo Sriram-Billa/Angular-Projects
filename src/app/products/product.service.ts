@@ -1,52 +1,30 @@
 import { Injectable } from "@angular/core";
 import { IProduct } from './product';
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { Observable } from 'rxjs';
 
 @Injectable()
 
 export class ProductService {
 
-    getProducts(): IProduct[] {
+    private _productURL = "http://localhost:8080/restfuljersey/rest/hello/products";
 
-        return [
-            {
-                "productId": 1,
-                "productName": "Lock",
-                "productCode": "Lock-1",
-                "availability": "March 12,2020",
-                "price": 20.0,
-                "description": "Lock image",
-                "starRating": 3.0,
-                "imageUrl": "http://clipart-library.com/images/5iRXR7gRT.jpg"
-            }, {
-                "productId": 2,
-                "productName": "Penguin",
-                "productCode": "Penguin-1",
-                "availability": "March 1,2020",
-                "price": 24.0,
-                "description": "Penguin image",
-                "starRating": 4.4,
-                "imageUrl": "http://clipart-library.com/images/BcaE5KEXi.png"
-            }, {
-                "productId": 3,
-                "productName": "Rose",
-                "productCode": "Rose-1",
-                "availability": "March 5,2020",
-                "price": 50.0,
-                "description": "Rose image",
-                "starRating": 4.9,
-                "imageUrl": "http://clipart-library.com/newimages/rose-clip-art-1.png"
-            },
-            {
-                "productId": 3,
-                "productName": "Captain America",
-                "productCode": "Captail America-1",
-                "availability": "May 10,2020",
-                "price": 100.0,
-                "description": "Captain America image",
-                "starRating": 5,
-                "imageUrl": "http://clipart-library.com/2020/6318548be37f8c33a9da5fc5217b5d9b.png"
-            }
-        ];
+    //http instance is created
+    constructor(private _http: HttpClient) {
+
+
+
+    }
+    //of type observable as container to hold IProduct type of data
+    getProducts(): Observable<IProduct[]> {
+
+        return this._http.get<IProduct[]>(this._productURL)
+       
+    }
+
+    private handleError(err:HttpErrorResponse){
+
+
     }
 
 
