@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { IProduct } from './product';
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Observable } from 'rxjs';
-
+import "rxjs/"
 @Injectable()
 
 export class ProductService {
@@ -17,13 +17,14 @@ export class ProductService {
     }
     //of type observable as container to hold IProduct type of data
     getProducts(): Observable<IProduct[]> {
-
-        return this._http.get<IProduct[]>(this._productURL)
+        console.log('called');
+        return this._http.get<IProduct[]>(this._productURL);
        
     }
 
     private handleError(err:HttpErrorResponse){
 
+        console.log(err.message)
 
     }
 

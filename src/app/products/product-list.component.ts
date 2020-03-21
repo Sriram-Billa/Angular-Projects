@@ -23,7 +23,13 @@ export class productListComponent implements OnInit, OnChanges, AfterViewInit, O
     products: IProduct[];
     ngOnInit(): void {
         console.log("inside on init()");
-        this.products = this._productService.getProducts();
+       // this.products = this._productService.getProducts();
+
+       //
+       this._productService.getProducts().subscribe( products => this.products = products, error=>
+            console.log('Error Getting Location: ', error)
+          );
+      
     };
     ngOnChanges(changes: import("@angular/core").SimpleChanges): void {
         console.log("inside onchanges()")
