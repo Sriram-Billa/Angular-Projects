@@ -5,9 +5,9 @@ import { ProductService } from './products/product.service';
 @Component({
   selector: 'root',
   templateUrl: './app.component.html',
-  providers:[ProductService]
-  
+  providers: [ProductService]
+
 })
 export class AppComponent {
-  title = 'Angular-app';
+  title: string = 'Product Management App';
 }
